@@ -1,8 +1,8 @@
+""" Testing the serializer """
 from string import ascii_lowercase
-
 from pandas import DataFrame
-
 from app.model import Classifier
+
 
 """ Training configuration """
 n_cols = 5
@@ -10,7 +10,7 @@ n_rows = 1000
 n_features = n_cols - 1
 n_predictions = 5
 
-""" Training Data """
+""" Training Data - deterministic fake data """
 df = DataFrame([{
     k: v for k, v in zip(ascii_lowercase[:n_cols], range(n_cols))
 } for _ in range(n_rows)])
