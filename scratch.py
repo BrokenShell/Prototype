@@ -34,5 +34,9 @@ basis = DataFrame([{
     k: v for k, v in zip(ascii_lowercase[:n_features], range(n_features))
 } for _ in range(n_predictions)])
 
-""" Prediction """
-print(model(basis))
+""" Prediction Output """
+print(f"\nFeatures: {feature_cols}")
+print(f"Target: {target_col}\n")
+print(f"Training Sample:\n{df.head(5)}\n")
+print(f"Prediction Basis:\n{basis}\n")
+print(f"Predictions: {model(basis)}")
