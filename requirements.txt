@@ -1,3 +1,11 @@
 joblib
 sklearn
 pandas
+Flask
+flask-httpauth
+scikit-learn
+Werkzeug
+pydantic[email]
+pymongo[srv]
+python-dotenv
+certifi

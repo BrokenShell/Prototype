@@ -3,7 +3,7 @@ Monsters
     - Stats
         - Monster Type (Undead, Demon, Animal)
         - Level
-        - Resistances (Fire, Frost, Lightning, Physical, etc.)
+        - Resistances (Fire, Frost, Lightning, Physical)
         - Armor
         - Damage (Elemental + regular)
         - Health Points
@@ -11,7 +11,6 @@ Monsters
         - Movement Speed
         - XP Reward (Meta)
     - Tier (Rank)
-
 """
 from typing import Literal
 
@@ -21,7 +20,7 @@ from app.utilities import dice, d
 class Monster:
     level: int
     damage_dice: int
-    monster_type: int
+    monster_type: str
     resistance: float
     armor: int
     health: int

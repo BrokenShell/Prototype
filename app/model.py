@@ -6,18 +6,7 @@ from pandas import DataFrame
 from sklearn.ensemble import RandomForestClassifier
 
 
-class Serializer:
-    filepath = ""
-
-    def save(self):
-        joblib.dump(self, self.filepath)
-
-    @classmethod
-    def open(cls):
-        return joblib.load(cls.filepath)
-
-
-class Classifier(Serializer):
+class Classifier:
     filepath = os.path.join("app", "saved_model", "model.joblib")
 
     def __init__(self, features: DataFrame, targets: List):
@@ -29,3 +18,10 @@ class Classifier(Serializer):
 
     def __str__(self):
         return "\n".join(f"{k}: {v}" for k, v in vars(self).items())
+
+    def save(self):
+        joblib.dump(self, self.filepath)
+
+    @classmethod
+    def open(cls):
+        return joblib.load(cls.filepath)

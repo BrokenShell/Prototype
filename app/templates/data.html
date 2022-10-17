@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Dynamic Data Controller</h1>
+    <h2>Training Data Input Form</h2>
+    <ul>
+        <li>Data I/O Form: Features => Target</li>
+    </ul>
+    <h2>Data Output Options</h2>
+    <ul>
+        <li>Column Flags</li>
+        <li>Filter Options</li>
+    </ul>
+    <h2>Tabular Data Output</h2>
+    <ul>
+        <li>HTML Table</li>
+    </ul>
+    {{ table | safe }}
+{% endblock %}
