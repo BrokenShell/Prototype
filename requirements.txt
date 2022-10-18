@@ -9,3 +9,5 @@ pydantic[email]
 pymongo[srv]
 python-dotenv
 certifi
+rsa
+gunicorn
