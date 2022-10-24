@@ -3,11 +3,13 @@ sklearn
 pandas
 Flask
 flask-httpauth
+Fortuna
 scikit-learn
-Werkzeug
+MonkeyScope
 pydantic[email]
 pymongo[srv]
 python-dotenv
 certifi
 rsa
 gunicorn
+Werkzeug
