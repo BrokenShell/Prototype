@@ -96,13 +96,3 @@ ac_by_cr = {
     "29": QuantumMonty((20, 21, 22, 23)).middle_linear,
     "30": QuantumMonty((21, 22, 23, 24)).middle_linear,
 }
-
-
-class ChallengeRating:
-
-    def __init__(self, value):
-        self.value = value
-
-
-cr = ChallengeRating("1/4")
-print(ac_by_cr[cr.value]())
