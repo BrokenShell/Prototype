@@ -10,7 +10,7 @@ Users = MongoDB("Credentials")
 
 @Authentication.verify_password
 def verify_password(username, password) -> bool:
-    users = Users.read({})
+    users = Users.read_one({})
     if username not in users.keys():
         return False
     decrypted = Cypher.decrypt(users.get(username))

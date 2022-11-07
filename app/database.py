@@ -17,6 +17,9 @@ class MongoDB:
     def create_one(self, record: Dict) -> bool:
         return self.collection.insert_one(record).acknowledged
 
+    def read_one(self, query: Dict) -> Dict:
+        return self.collection.find_one(query, {"_id": False})
+
     def create(self, records: Iterable[Dict]) -> bool:
         return self.collection.insert_many(records).acknowledged
 
