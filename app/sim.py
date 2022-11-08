@@ -24,16 +24,28 @@ class CombatUnit:
 def combat_turn(attacker: CombatUnit, defender: CombatUnit):
     att_roll = roll_d20() + attacker.attack_bonus
     if att_roll >= defender.armor_class:
-        print(f"{attacker} Hit {defender}")
+        return f"{attacker} Hit {defender}"
     else:
-        print(f"{attacker} Miss {defender}")
+        return f"{attacker} Miss {defender}"
 
 
 def combat_round(unit_1, unit_2):
-    combat_turn(unit_1, unit_2)
-    combat_turn(unit_2, unit_1)
+    c1 = combat_turn(unit_1, unit_2)
+    c2 = combat_turn(unit_2, unit_1)
 
 
 if __name__ == '__main__':
     unit_1 = CombatUnit("Wizard", attack_bonus=3, armor_class=14)
     unit_2 = CombatUnit("Dragon", attack_bonus=5, armor_class=18)
+
+
+""" Details
+Wizard 20 vs Dragon 13
+Damage Delt, per round?
+Health <= 0 Death?
+Who Won?
+
+Do we need every stat in the training data?
+
+- Every training input requires input for predictions!!!
+"""
