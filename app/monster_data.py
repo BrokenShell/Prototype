@@ -135,14 +135,14 @@ stats_by_cr = [
 ]
 
 
-def resolve(cr_index):
+def resolve(cr):
+    cr_index = cr + 3
     stats_obj = stats_by_cr[cr_index]
-    cr = stats_obj["CR"]
-    ac = QuantumMonty(stats_obj["Armor Class"]).middle_linear()
-    att = QuantumMonty(stats_obj["Attack Bonus"]).middle_linear()
-    prof = stats_obj["Proficiency Bonus"]
-    return f"Monster({cr=}, {ac=}, {att=}, {prof=})"
+    ac = QuantumMonty(stats_obj["Armor"]).middle_linear()
+    att = QuantumMonty(stats_obj["Attack"]).middle_linear()
+    return ac, att
 
 
 if __name__ == '__main__':
-    DataFrame(stats_by_cr).to_csv("monster_stats.csv", index=False)
+    # DataFrame(stats_by_cr).to_csv("monster_stats.csv", index=False)
+    print(resolve(10))

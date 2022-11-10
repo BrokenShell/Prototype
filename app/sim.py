@@ -8,6 +8,8 @@ Crits
 """
 import random
 
+from app.monster_types import RandomMonster
+
 
 def roll_d20():
     return random.randint(1, 20)
@@ -21,7 +23,7 @@ class CombatUnit:
         self.armor_class = armor_class
 
 
-def combat_turn(attacker: CombatUnit, defender: CombatUnit):
+def combat_turn(attacker: RandomMonster, defender: RandomMonster):
     att_roll = roll_d20() + attacker.attack_bonus
     if att_roll >= defender.armor_class:
         return f"{attacker} Hit {defender}"

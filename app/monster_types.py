@@ -2,11 +2,11 @@ from Fortuna import dice, distribution_range, front_poisson
 from pydantic import BaseModel, constr, conint
 from pydantic.schema import Optional, Literal
 
-from app.monster_data import dice_by_type, name_by_type, ac_by_cr
+from app.monster_data import dice_by_type, name_by_type, ac_by_cr, resolve
 
 ShortString = constr(min_length=3, max_length=64)
-MonsterCR = conint(ge=1, le=40)
-RandomCR = distribution_range(front_poisson, 1, 40)
+MonsterCR = conint(ge=1, le=30)
+RandomCR = distribution_range(front_poisson, 1, 30)
 
 
 MonsterType = Literal[
@@ -34,6 +34,9 @@ class RandomMonster:
         self.current_health = dice(self.challenge_rating, self.heath_dice)
         self.total_health = self.challenge_rating * self.heath_dice
         self.damage_formula = f"{self.challenge_rating}d{self.damage_dice}"
+        ac, att = resolve(self.challenge_rating)
+        self.armor_class = ac
+        self.attack_bonus = att
 
     def damage(self):
         return dice(self.challenge_rating, self.damage_dice)
@@ -43,5 +46,5 @@ class RandomMonster:
 
 
 if __name__ == '__main__':
-    monster = RandomMonster(MonsterQuery())
+    monster = RandomMonster(MonsterQuery(challenge_rating=10))
     print(monster)

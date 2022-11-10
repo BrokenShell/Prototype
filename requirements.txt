@@ -1,5 +1,4 @@
 joblib
-sklearn
 pandas
 Flask
 flask-httpauth
