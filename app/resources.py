@@ -2,7 +2,6 @@ from Fortuna import smart_clamp
 
 
 class Resource:
-    """ Point total that can go up and down based on combat """
 
     def __init__(self, amount: int):
         self.current = amount
@@ -12,13 +11,10 @@ class Resource:
         return f"{self.current}/{self.total}"
 
     def sub(self, amount):
-        self.current -= smart_clamp(0, self.current, amount)
+        self.current = smart_clamp(0, self.total, self.current - amount)
 
     def add(self, amount):
-        # Todo: FIX IT
-        self.current += smart_clamp(0, self.current, amount)
+        self.current = smart_clamp(0, self.total,  self.current + amount)
 
-
-r = Resource(10)
-r.add(1)
-print(r)
+    def __bool__(self):
+        return self.current > 0

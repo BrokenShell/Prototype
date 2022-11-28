@@ -10,6 +10,9 @@ class Classifier:
     filepath = os.path.join("app", "saved_model", "model.joblib")
 
     def __init__(self, features: DataFrame, targets: List):
+        # Todo: Add train/test split
+        # Todo: Add RandomSearchCV pipeline
+        # Todo: Encode features if needed
         self.model = RandomForestClassifier()
         self.model.fit(features, targets)
 

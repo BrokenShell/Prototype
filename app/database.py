@@ -31,3 +31,9 @@ class MongoDB:
 
     def delete(self, query) -> bool:
         return self.collection.delete_many(query).acknowledged
+
+
+if __name__ == '__main__':
+    db = MongoDB("Simulation")
+    print(*db.read({}), sep="\n")
+    # db.delete({})
