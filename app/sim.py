@@ -21,8 +21,6 @@ def initiative(attacker, defender):
 
 
 def combat(unit_1, unit_2):
-    # Todo: add initiative?
-    # Todo: decide if ties are acceptable
     attacker, defender = initiative(unit_1, unit_2)
 
     while attacker and defender:
