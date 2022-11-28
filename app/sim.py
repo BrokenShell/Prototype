@@ -39,7 +39,6 @@ def combat(unit_1, unit_2):
 
 
 if __name__ == '__main__':
-    # Todo: loop & collect results for model training
     data = []
     for _ in range(1000):
         u1 = RandomMonster(MonsterQuery(challenge_rating=10))
