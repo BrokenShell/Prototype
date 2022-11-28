@@ -7,7 +7,7 @@ from app.monster_types import RandomMonster, MonsterQuery
 def combat_turn(attacker: RandomMonster, defender: RandomMonster):
     att_roll = d(20) + attacker.attack_bonus
     if att_roll >= defender.armor_class:
-        defender.heath.sub(attacker.damage())
+        defender.health.sub(attacker.damage())
 
 
 def initiative(attacker, defender):

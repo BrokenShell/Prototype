@@ -30,9 +30,9 @@ class RandomMonster:
         self.monster_name = monster_query.monster_name or name_by_type(monster_type)
         self.monster_type = monster_type
         self.challenge_rating = monster_query.challenge_rating or RandomCR()
-        self.heath_dice = dice_by_type(self.monster_type)
+        self.health_dice = dice_by_type(self.monster_type)
         self.damage_dice = dice_by_type(self.monster_type) // 2
-        self.heath = Resource(dice(self.challenge_rating, self.heath_dice))
+        self.health = Resource(dice(self.challenge_rating, self.health_dice))
         ac, att = resolve(self.challenge_rating)
         self.damage_formula = f"{self.challenge_rating}d{self.damage_dice}+{att}"
         self.armor_class = ac
@@ -42,7 +42,7 @@ class RandomMonster:
         return dice(self.challenge_rating, self.damage_dice)
 
     def __bool__(self):
-        return bool(self.heath)
+        return bool(self.health)
 
     def __str__(self):
         return "\n".join(f"{k}: {v}" for k, v in vars(self).items())
@@ -50,5 +50,5 @@ class RandomMonster:
 
 if __name__ == '__main__':
     m = RandomMonster(MonsterQuery())
-    m.heath.sub(10000)
+    m.health.sub(10000)
     print(bool(m))
