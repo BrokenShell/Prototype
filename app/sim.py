@@ -1,10 +1,6 @@
 from Fortuna import d
 
-from app.database import MongoDB
 from app.monster_types import RandomMonster, MonsterQuery
-
-
-db = MongoDB("Simulation")
 
 
 def combat_turn(attacker: RandomMonster, defender: RandomMonster):
