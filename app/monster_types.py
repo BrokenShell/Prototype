@@ -46,3 +46,9 @@ class RandomMonster:
 
     def __str__(self):
         return "\n".join(f"{k}: {v}" for k, v in vars(self).items())
+
+
+if __name__ == '__main__':
+    m = RandomMonster(MonsterQuery())
+    m.heath.sub(10000)
+    print(bool(m))
